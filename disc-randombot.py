@@ -36,7 +36,8 @@ async def on_message(message):
             await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")   
     if command[0] == '/randS':       
         if len(command) > 2 :   
-            randlist = command[1:len(command)-1]
+            randlist = command[1:]
+            
             await message.channel.send(random.choice(randlist))
         else:
             await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
