@@ -38,7 +38,7 @@ async def on_message(message):
         if len(command) > 2 :   
             randlist = command[1:]
             
-            await message.channel.send(rand[1])
+            await message.channel.send(randlist[0])
             # await message.channel.send(random.choice(randlist))
         else:
             await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
