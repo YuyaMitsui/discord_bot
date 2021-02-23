@@ -29,7 +29,6 @@ async def on_message(message):
         if len(command) == 3:
             if command[1].isdigit() and command[2].isdigit():
                 rand = random.randint(int(command[1]),int(command[2]))
-                rand = command[1]
                 await message.channel.send(rand)
             else:
                 await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")  
@@ -39,8 +38,8 @@ async def on_message(message):
         if len(command) > 2 :   
             randlist = command[1:]
             
-            # await message.channel.send(randlist[0])
-            await message.channel.send(random.choice(randlist))
+            await message.channel.send(randlist[0])
+            # await message.channel.send(random.choice(randlist))
         else:
             await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
 
