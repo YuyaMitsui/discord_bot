@@ -20,11 +20,9 @@ async def on_ready():
 
 @tasks.loop(seconds=60)
 async def loop():
-    date = datetime.datetime.now()
-    hour = date.hour
-    min = date.minute
+    now = datetime.now().strftime('%H:%M')
     yt = [y,t]
-    if hour == 19 and min == 15:
+    if now == '19:20':
         await message.channel.send(random.choice(randlist))
 #ループ処理実行
 loop.start()
