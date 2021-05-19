@@ -5,13 +5,15 @@ import random
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
-
+from discord.ext import tasks
+from datetime import datetime 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 DISCORD_BOT_TOKEN = os.environ.get("DISCORD_BOT_TOKEN")
+CHANNEL_ID = os.environ.get("CHANNEL_ID")
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -22,9 +24,10 @@ async def on_ready():
 async def loop():
     now = datetime.now().strftime('%H:%M')
     yt = ["y","t"]
-    if now == '19:25':
-        await channel.send(random.choice(yt))
-    await channel.send("test")
+    await client.wait_until_ready()
+    ch = client.get_channel(CHANNEL_ID)
+    if now == '18:00':
+        await ch.send(random.choice(yt))
 #ループ処理実行
 loop.start()
 
