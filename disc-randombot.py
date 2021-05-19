@@ -18,10 +18,22 @@ async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
 
+@tasks.loop(seconds=60)
+async def loop():
+    date = datetime.datetime.now()
+    hour = date.hour
+    min = date.minute
+    yt = [y,t]
+    if hour == 19 and min == 15:
+        await message.channel.send(random.choice(randlist))
+#ループ処理実行
+loop.start()
+
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
+
     if message.author.bot:
         return
     command = message.content.split()
