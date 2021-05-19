@@ -32,30 +32,30 @@ async def loop():
 loop.start()
 
 # メッセージ受信時に動作する処理
-# @client.event
-# async def on_message(message):
-#     # メッセージ送信者がBotだった場合は無視する
+@client.event
+async def on_message(message):
+    # メッセージ送信者がBotだった場合は無視する
 
-#     if message.author.bot:
-#         return
-#     command = message.content.split()
-#     if command[0] == '/rand':
-#         if len(command) == 3:
-#             if command[1].isdigit() and command[2].isdigit():
-#                 rand = random.randint(int(command[1]),int(command[2]))
-#                 await message.channel.send(rand)
-#             else:
-#                 await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")  
-#         else:
-#             await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")   
-#     if command[0] == '/randS':       
-#         if len(command) > 2 :   
-#             randlist = command[1:]
+    if message.author.bot:
+        return
+    command = message.content.split()
+    if command[0] == '/rand':
+        if len(command) == 3:
+            if command[1].isdigit() and command[2].isdigit():
+                rand = random.randint(int(command[1]),int(command[2]))
+                await message.channel.send(rand)
+            else:
+                await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")  
+        else:
+            await message.channel.send("/rand min max\n[min,max]範囲の乱数生成")   
+    if command[0] == '/randS':       
+        if len(command) > 2 :   
+            randlist = command[1:]
             
-#             # await message.channel.send(randlist[0])
-#             await message.channel.send(random.choice(randlist))
-#         else:
-#             await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
+            # await message.channel.send(randlist[0])
+            await message.channel.send(random.choice(randlist))
+        else:
+            await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
 
 # Botの起動とDiscordサーバーへの接続
 client.run(DISCORD_BOT_TOKEN)
