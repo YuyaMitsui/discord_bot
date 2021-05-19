@@ -24,6 +24,7 @@ async def loop():
     yt = [y,t]
     if now == '19:25':
         await message.channel.send(random.choice(yt))
+    await message.channel.send("test")
 #ループ処理実行
 loop.start()
 
