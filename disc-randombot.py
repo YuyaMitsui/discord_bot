@@ -2,6 +2,7 @@
 # インストールした discord.py を読み込む
 import discord
 import random
+import numpy as np
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
@@ -27,7 +28,10 @@ async def loop():
     await client.wait_until_ready()
     ch = client.get_channel(CHANNEL_ID)
     if now == '18:00':
-        await ch.send(random.choice(yt))
+        # await ch.send(random.choice(yt))
+        prob_list  = [0.50,0.50]
+        result = np.random.choice(a=yt, size=1, p=prob_list)
+        await ch.send("風呂" + result)
 #ループ処理実行
 loop.start()
 
@@ -51,9 +55,10 @@ async def on_message(message):
     if command[0] == '/randS':       
         if len(command) > 2 :   
             randlist = command[1:]
-            
-            # await message.channel.send(randlist[0])
-            await message.channel.send(random.choice(randlist))
+            prob_list  = [0.50,0.50]
+            result = np.random.choice(a=randlist, size=1, p=prob_list )
+            await message.channel.send(result)
+            # await message.channel.send(random.choice(randlist))
         else:
             await message.channel.send("/randS A B C D\n[A,B,C,D]の中からランダム")          
 
