@@ -27,7 +27,7 @@ async def loop():
     yt = ["y","t"]
     await client.wait_until_ready()
     ch = client.get_channel(CHANNEL_ID)
-    if now == '18:00':
+    if now == '20:20':
         # await ch.send(random.choice(yt))
         prob_list  = [0.50,0.50]
         result = np.random.choice(a=yt, size=1, p=prob_list)
