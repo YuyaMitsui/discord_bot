@@ -24,7 +24,7 @@ async def on_ready():
 @tasks.loop(seconds=60)
 async def loop():
     now = datetime.now().strftime('%H:%M')
-    yt = ["y","y"]
+    yt = ["y","t"]
     await client.wait_until_ready()
     ch = client.get_channel(CHANNEL_ID)
     if now == '20:20':
