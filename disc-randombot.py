@@ -24,7 +24,7 @@ async def on_ready():
 @tasks.loop(seconds=60)
 async def loop():
     now = datetime.now().strftime('%H:%M')
-    yt = ["y","y"]
+    yt = ["t","y"]
     await client.wait_until_ready()
     ch = client.get_channel(CHANNEL_ID)
     if now == '20:20':
@@ -58,6 +58,7 @@ async def on_message(message):
             randlist = command[1:]
             prob_list  = [0.50,0.50]
             result = np.random.choice(a=randlist, size=1, p=prob_list )
+            # result = ["y"]
             await message.channel.send(result)
             # await message.channel.send(random.choice(randlist))
         else:
