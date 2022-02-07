@@ -58,7 +58,7 @@ async def on_message(message):
             randlist = command[1:]
             prob_list  = [0.50,0.50]
             result = np.random.choice(a=randlist, size=1, p=prob_list )
-            result = ["y"]
+            # result = ["y"]
             await message.channel.send(result)
             # await message.channel.send(random.choice(randlist))
         else:
