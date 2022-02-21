@@ -1,5 +1,5 @@
 
-# インストールした discord.py を読み込む
+# インストールした discord.py を読み込む 
 import discord
 import random
 import numpy as np
